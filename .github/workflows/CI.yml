@@ -4,7 +4,10 @@ on:
   push:
     branches:
       - main
+      - add_new_function
   pull_request:
+    branches:
+      - main
 
 jobs:
   test:
