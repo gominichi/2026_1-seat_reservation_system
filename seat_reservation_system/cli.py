@@ -56,22 +56,22 @@ def run_cli():
                 if count <= 0:
                     raise ValueError("Count must be greater than 0.")
                 
-                # 연석 계산 함수를 호출
+                # Call recommendation function
                 recommended_seats = store.recommend_consecutive_seats(count)
                 
                 if recommended_seats:
-                    # 추천 좌석 리스트를 문자열로 파싱 (예: [1, 2] -> "1, 2")
+                    # Parse recommended seats to string
                     seats_str = ", ".join(map(str, recommended_seats))
                     print(f"Recommended seats: {seats_str}")
                     
-                    # 예약을 진행할지 확인
+                    # Confirm reservation
                     choice = input("Do you want to reserve these seats? (y/n): ").strip().lower()
                     if choice == "y":
                         name = input("Enter your name: ").strip()
                         if not name:
                             raise ValueError("Name cannot be empty.")
                         
-                        # 찾은 연석들을 하나의 이름으로 일괄 예약 처리
+                        # Reserve all recommended seats
                         for seat_id in recommended_seats:
                             store.reserve(seat_id, name)
                             _print_seat(seat_id, name)
