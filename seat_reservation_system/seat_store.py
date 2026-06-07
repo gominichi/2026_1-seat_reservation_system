@@ -35,7 +35,7 @@ class SeatStore:
         return self._seats[seat_id]
 
     
-def recommend_consecutive_seats(self, count):
+    def recommend_consecutive_seats(self, count):
         
         # Find consecutive available seats based on the requested count.
         
