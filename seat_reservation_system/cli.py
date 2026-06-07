@@ -54,7 +54,7 @@ def run_cli():
                 count = int(args[0])
                 
                 if count <= 0:
-                    raise ValueError("인원수는 1명 이상이어야 합니다.")
+                    raise ValueError("Count must be greater than 0.")
                 
                 # 연석 계산 함수를 호출
                 recommended_seats = store.recommend_consecutive_seats(count)
@@ -66,7 +66,7 @@ def run_cli():
                     
                     # 예약을 진행할지 확인
                     choice = input("Do you want to reserve these seats? (y/n): ").strip().lower()
-                    if choice == "yes":
+                    if choice == "y":
                         name = input("Enter your name: ").strip()
                         if not name:
                             raise ValueError("Name cannot be empty.")
